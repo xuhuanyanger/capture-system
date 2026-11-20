@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "camera": {
+    "count": 5,
+    "width": 1920,
+    "height": 1200,
+    "fps": 30,
+    "pixel_format": "NV12",
+    "device_mapping": null
+  },
+  "video": {
+    "codec": "H264",
+    "container": "MP4",
+    "bitrate_bps_per_camera": null,
+    "segment_seconds": null
+  },
+  "imu": {
+    "model": "ICM45686",
+    "sample_rate_hz": null
+  },
+  "network": {
+    "wifi_module": "AP6256"
+  },
+  "storage": {
+    "root_path": null
+  },
+  "sync": {
+    "clock_domain": null,
+    "max_error_us": null
+  }
+}

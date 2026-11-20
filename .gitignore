@@ -1,0 +1,22 @@
+# 构建输出与本地运行数据
+/build*/
+/out/
+/runtime/
+/data/
+/logs/
+/dist/
+**/node_modules/
+**/__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+/config/local/
+/config/calibration/private/
+/config/secrets/
+*.mp4
+*.h264
+*.h265
+*.mcap
+*.wav
+*.pcm
