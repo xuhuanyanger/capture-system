@@ -20,3 +20,6 @@
 *.mcap
 *.wav
 *.pcm
+
+# Local compiler distributions (keep toolchain .cmake files tracked)
+/cmake/toolchains/gcc-arm-*/

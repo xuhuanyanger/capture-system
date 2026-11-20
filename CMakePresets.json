@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "cmakeMinimumRequired": {"major": 3, "minor": 20, "patch": 0},
+  "configurePresets": [{"name": "host-test", "generator": "Unix Makefiles", "binaryDir": "${sourceDir}/out/build-host-test", "cacheVariables": {"BUILD_TESTING": "ON", "BUILD_WIFI_TIME_TOOLS": "ON"}}],
+  "buildPresets": [{"name": "host-test", "configurePreset": "host-test"}],
+  "testPresets": [{"name": "host-test", "configurePreset": "host-test", "output": {"outputOnFailure": true}}]
+}

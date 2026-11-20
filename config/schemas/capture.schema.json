@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Capture configuration v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "camera",
+    "video",
+    "imu",
+    "network",
+    "storage",
+    "sync"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "count",
+        "width",
+        "height",
+        "fps",
+        "pixel_format",
+        "device_mapping"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "const": 5
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fps": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pixel_format": {
+          "type": "string",
+          "enum": [
+            "NV12"
+          ]
+        },
+        "device_mapping": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "minItems": 5,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "codec",
+        "container",
+        "bitrate_bps_per_camera",
+        "segment_seconds"
+      ],
+      "properties": {
+        "codec": {
+          "type": "string",
+          "enum": [
+            "H264"
+          ]
+        },
+        "container": {
+          "type": "string",
+          "enum": [
+            "MP4"
+          ]
+        },
+        "bitrate_bps_per_camera": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "segment_seconds": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      }
+    },
+    "imu": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "sample_rate_hz"
+      ],
+      "properties": {
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sample_rate_hz": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      }
+    },
+    "network": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wifi_module"
+      ],
+      "properties": {
+        "wifi_module": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "storage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "root_path"
+      ],
+      "properties": {
+        "root_path": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1,
+          "pattern": "^/"
+        }
+      }
+    },
+    "sync": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clock_domain",
+        "max_error_us"
+      ],
+      "properties": {
+        "clock_domain": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "host_monotonic",
+            null
+          ]
+        },
+        "max_error_us": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,3 @@
-# IMU 采集；实际源文件和依赖确认后添加构建目标。
+add_library(imu_sample STATIC imu_sample.c)
+target_include_directories(imu_sample PUBLIC "${PROJECT_SOURCE_DIR}/include")
+target_compile_features(imu_sample PUBLIC c_std_11)

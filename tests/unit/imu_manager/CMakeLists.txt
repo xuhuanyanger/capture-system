@@ -1,0 +1,3 @@
+add_executable(imu_sample_test test_imu_sample.c)
+target_link_libraries(imu_sample_test PRIVATE imu_sample)
+add_test(NAME imu_sample_test COMMAND imu_sample_test)

@@ -1,0 +1,13 @@
+[Unit]
+Description=Capture system WebRTC preview
+After=network.target
+
+[Service]
+DynamicUser=yes
+ProtectSystem=strict
+NoNewPrivileges=yes
+ExecStart=/usr/local/bin/mediamtx /etc/capture-system/mediamtx.yml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
